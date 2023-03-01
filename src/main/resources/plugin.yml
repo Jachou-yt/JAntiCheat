@@ -1,0 +1,4 @@
+name: JAntiCheat
+version: '${project.version}'
+main: fr.jachou.janticheat.JAntiCheat
+api-version: 1.19

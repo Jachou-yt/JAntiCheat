@@ -4,10 +4,11 @@ import fr.jachou.janticheat.managers.Managers;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.plugin.Plugin;
 
-public class WallHackDetector {
+public class WallHackDetector implements Listener {
     @EventHandler
     public void onPlayerMove(PlayerMoveEvent event) {
         Player player = event.getPlayer();
@@ -17,7 +18,7 @@ public class WallHackDetector {
             int viewDistance = player.getClientViewDistance();
             int normalViewDistance = player.getWorld().getWorldBorder().getWarningDistance() / 16;
             if (viewDistance > normalViewDistance + 2) { // Add a tolerance of 2 blocks
-                player.sendMessage(Managers.PREFIX + " §fTu as été détécté en train d'utiliser un wallhack.");
+                player.sendMessage(Managers.PREFIX + "§fTu as été détécté en train d'utiliser un wallhack.");
                 // Optional: take further action such as teleporting the player to a jail area, banning them, or logging the incident
             }
         }

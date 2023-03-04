@@ -12,17 +12,18 @@ public class JAntiCheat extends JavaPlugin implements Listener {
     @Override
     public void onEnable() {
         // Plugin startup logic
+        instance = this;
         Managers.load();
 
-        // Events
-        getServer().getPluginManager().registerEvents(this, new WallHackDetector());
-
-        instance = this;
     }
 
     @Override
     public void onDisable() {
         // Plugin shutdown logic
         Managers.unload();
+    }
+
+    public static JAntiCheat getInstance() {
+        return instance;
     }
 }
